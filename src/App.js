@@ -8,6 +8,7 @@ const App = () => {
   const [showCompleted, setShowCompleted] = useState(false);
   const [editableTodo, setEditableTodo] = useState(null);
   const [editedTitle, setEditedTitle] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     axios
@@ -17,15 +18,18 @@ const App = () => {
   }, []);
 
   const addTodo = () => {
-    if (newTodo.trim() !== "") {
-      const newTask = {
-        id: todos.length + 1,
-        title: newTodo,
-        completed: false,
-      };
-      setTodos([...todos, newTask]);
-      setNewTodo("");
+    if (newTodo.trim() === "") {
+      setError("Please provide Todo text");
+      return;
     }
+    const newTask = {
+      id: todos.length + 1,
+      title: newTodo,
+      completed: false,
+    };
+    setTodos([...todos, newTask]);
+    setNewTodo("");
+    setError("");
   };
 
   const toggleCompleted = (id) => {
@@ -85,6 +89,9 @@ const App = () => {
           Add
         </button>
       </div>
+      {error && (
+        <div style={{ color: "red", textAlign: "center" }}>{error}</div>
+      )}
       <div>
         <label>
           Show Completed
