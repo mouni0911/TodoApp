@@ -1,38 +1,88 @@
-.App {
+.app-container {
+  margin: auto;
+  padding: 20px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #e9e2e2;
+}
+
+h1 {
   text-align: center;
+  color: rgb(240, 83, 10);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input[type="text"] {
+  width: 50%;
+  padding: 8px;
+  border-color: darkgray;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 2;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+label {
+  margin-left: 5px;
+  font-weight: 600;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.todo-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.todo-list li {
+  position: relative;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 8px;
+  border: 1px solid rgb(165, 164, 164);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  color: green;
+  font-weight: 700;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: orangered;
+  font-weight: 600;
+}
+
+input,
+button {
+  margin-top: 10px;
+  padding: 8px;
+}
+
+button {
+  margin-left: 5px;
+  cursor: pointer;
+  background-color: #dd0909;
+  border-radius: 5px;
+  border: none;
   color: white;
+  padding: 6px 10px;
+  font-size: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Edit button styles */
+.todo-list li .edit-button {
+  position: absolute;
+  right: 75px;
+  top: 50%;
+  transform: translateY(-65%);
+  padding: 6px;
+  cursor: pointer;
+  background-color: #2196f3; /* Blue color for edit button */
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* .todo-list li:hover .edit-button {
+  display: inline-block;
+} */
